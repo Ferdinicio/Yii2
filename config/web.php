@@ -52,11 +52,27 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'pluralize' => false,
+                    'controller' => 'api\default'
+                ]
             ],
         ],
         
     ],
     'params' => $params,
+    'modules' => [
+        'financeiro' => [
+            'class' => 'app\modules\financeiro\FinanceiroModule'
+        ],
+        
+        'api' => [
+            'class' => 'app\modules\api\ApiModule',
+        ]
+        
+    ],
+   
 ];
 
 if (YII_ENV_DEV) {
